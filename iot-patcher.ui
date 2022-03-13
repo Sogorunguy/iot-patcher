@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>750</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>IOT-patcher</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">color:rgb(255, 176, 251);
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabswitcher">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>0</y>
+      <width>711</width>
+      <height>700</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>711</width>
+      <height>700</height>
+     </size>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="movable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="options">
+     <attribute name="title">
+      <string>Options</string>
+     </attribute>
+     <widget class="QPushButton" name="firmpathsel">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>10</y>
+        <width>180</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(112, 119, 255);</string>
+      </property>
+      <property name="text">
+       <string>Select path to firmware</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="outpathsel">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>50</y>
+        <width>180</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(112, 119, 255);</string>
+      </property>
+      <property name="text">
+       <string>Select path to output folder</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="firmpath">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>500</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(112, 119, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="outpath">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>500</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(112, 119, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="log">
+     <attribute name="title">
+      <string>Log</string>
+     </attribute>
+     <widget class="QTextEdit" name="logfield">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>690</width>
+        <height>620</height>
+       </rect>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="savelog">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>625</y>
+        <width>80</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Save log</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="copylog">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>625</y>
+        <width>80</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Copy log</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="vulnerabilities">
+     <attribute name="title">
+      <string>Vulnerabilities</string>
+     </attribute>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>firmpathsel</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>603</x>
+     <y>57</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>349</x>
+     <y>374</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>outpathsel</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>603</x>
+     <y>97</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>349</x>
+     <y>374</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>clicked()</slot>
+ </slots>
+</ui>
