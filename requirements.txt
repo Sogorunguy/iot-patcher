@@ -1,0 +1,7 @@
+jmespath
+pyparsing
+capstone
+nose 
+coverage
+pycryptodome
+binwalk 
