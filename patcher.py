@@ -8,8 +8,9 @@ from jmespath import search
 import getpass
 from pyparsing import Regex
 from zipfile import ZipFile
-#import apt_pkg
 import binwalk
+#import apt
+
 
 #Welcome text
 print("Welcome to IOT-patcher by https://github.com/TrueDru\n")
@@ -37,8 +38,9 @@ def replace_string_file(path):
  regex_root = r'^root:*'
  content = re.sub(regex_root, 'root:'+password+':0:0:root:/:/bin/sh', content)
  file_w.write(content)
- print('Password for root user in '+path+' succesfully updated!\n')
  file_w.close()
+ print('Password for root user in '+path+' succesfully updated!\n')
+ 
 
 #Autocomplete function
 def complete(text, state):
@@ -51,17 +53,16 @@ readline.set_completer(complete)
 binpath = input('Please enter path to *.bin file you want to decompile\nPath: ') #Path to binary file
 binname = os.path.basename(binpath)                                              #Extract filename from binpath   
 bindir = binpath.replace(binname,'')                                             #Extract directory of the binary file (replace filename with nothing)   
-
 outpath = input('Please enter path to output directory\nPath: ')
 if outpath == "":
   outpath = bindir
   print("Output of binwalk wiil be in "+bindir+" directory.\n")
-  extraction = str("binwalk --signature --term -e '"+binpath+"' --log "+outpath+"binwalk.log --directory "+outpath+" -t 2> /dev/null")
+  extraction = str("binwalk --signature --term -e '"+binpath+"' --log "+outpath+"binwalk.log --directory "+outpath+" -t")
 else:
-  extraction = str("binwalk --signature --term -e '"+binpath+"' --log "+outpath+"binwalk.log --directory "+outpath+" -t 2> /dev/null")
+  extraction = str("binwalk --signature --term -e '"+binpath+"' --log "+outpath+"binwalk.log --directory "+outpath+" -t")
+os.system(extraction)
 
 #Firmware checking
-os.system(extraction)
 workdir = str(bindir+'_'+binname+'.extracted/squashfs-root')
 os.chdir(workdir)
 print('\nBinwalk finished it''s work, firmware checking process is started. ')   
@@ -70,7 +71,6 @@ print('\nBinwalk finished it''s work, firmware checking process is started. ')
 if os.path.exists("etc/passwd") == True:
  print("Passwd file exist, start scanning")
  replace_string_file('etc/passwd')
-
 else:
  print("Passwd doesn't exist.\n")
 
